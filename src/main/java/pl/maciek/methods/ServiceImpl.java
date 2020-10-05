@@ -1,6 +1,6 @@
 package pl.maciek.methods;
 
-public class ServiceImplementation implements Service {
+public class ServiceImpl implements Service {
     @Override
     public int addNumber(int number, int previousNumber) {
         return previousNumber + number;
