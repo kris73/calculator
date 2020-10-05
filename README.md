@@ -1,0 +1,1 @@
+Kalkulator - interface do dodawania, odejmowania, mnozenia, dzielenia, pierwiastkowania, potegowania i silni
