@@ -10,5 +10,7 @@ public interface Service {
 
     int divideNumber(int number, int previousNumber);
 
+    int exponentiateNumber(int number, int exponentation);
 
+    int elementNumber(int number);
 }

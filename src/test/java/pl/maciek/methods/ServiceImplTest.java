@@ -8,6 +8,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ServiceImplTest {
 
+    private final static int NUMBER_32 = 32;
+    private final static int NUMBER_53 = 53;
+    private final static int NUMBER_33 = 33;
+    private final static int NUMBER_20 = 20;
+    private final static int NUMBER_2 = 2;
+    private final static int NUMBER_144 = 144;
+
+    //TODO dopisac stale
+
     ServiceImpl service;
 
     @Before
@@ -17,11 +26,9 @@ public class ServiceImplTest {
 
     @Test
     public void shouldAppendCorrectly() {
-        //given
-        int firstNumber = 33;
-        int secondNumber = 53;
+
         //when
-        int result = service.addNumber(firstNumber, secondNumber);
+        int result = service.addNumber(NUMBER_53, NUMBER_33);
         //then
         assertThat(result == 86).isTrue();
 
@@ -29,34 +36,41 @@ public class ServiceImplTest {
 
     @Test
     public void shouldSubtractCorrectly() {
-        //given
-        int firstNumber = 32;
-        int secondNumber = 20;
+        //TODO expected number
         //when
-        int result = service.subtractNumber(firstNumber, secondNumber);
+        int expectedNumber = service.subtractNumber(NUMBER_32, NUMBER_20);
         //then
-        assertThat(result == 12).isTrue();
+        assertThat(expectedNumber == 12).isTrue();
     }
 
     @Test
     public void shouldMultiplyCorrectly() {
-        //given
-        int firstNumber = 32;
-        int secondNumber = 20;
         //when
-        int result = service.multiplyNumber(firstNumber, secondNumber);
+        int expectedNumber = service.multiplyNumber(NUMBER_32, NUMBER_20);
         //then
-        assertThat(result == 640).isTrue();
+        assertThat(expectedNumber == 640).isTrue();
     }
 
     @Test
     public void shouldDivideCorrectly() {
-        //given
-        int firstNumber = 32;
-        int secondNumber = 2;
         //when
-        int result = service.divideNumber(firstNumber, secondNumber);
+        int expectedNumber = service.divideNumber(NUMBER_32, NUMBER_2);
         //then
-        assertThat(result == 16).isTrue();
+        assertThat(expectedNumber == 16).isTrue();
+    }
+
+    public void shouldPowerCorrectly() {
+        //when
+        int expectedNumber = service.exponentiateNumber(NUMBER_32, NUMBER_2);
+        //then
+        assertThat(expectedNumber == 1024).isTrue();
+    }
+
+    public void shouldElementCorrectly() {
+        //when
+        int expectedNumber = service.elementNumber(NUMBER_144);
+        //then
+        assertThat(expectedNumber == 12).isTrue();
+
     }
 }
