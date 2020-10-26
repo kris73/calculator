@@ -1,10 +1,10 @@
 package pl.maciek.methods;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 public class ServiceImplTest {
 
@@ -14,8 +14,7 @@ public class ServiceImplTest {
     private final static int NUMBER_20 = 20;
     private final static int NUMBER_2 = 2;
     private final static int NUMBER_144 = 144;
-
-    //TODO dopisac stale
+    private final static int NUMBER_5 = 5;
 
     ServiceImpl service;
 
@@ -23,54 +22,70 @@ public class ServiceImplTest {
     public void setUp() throws Exception {
         service = new ServiceImpl();
     }
-
     @Test
     public void shouldAppendCorrectly() {
-
+        //given
+        int result;
         //when
-        int result = service.addNumber(NUMBER_53, NUMBER_33);
+        result = service.addNumber(NUMBER_53, NUMBER_33);
         //then
         assertThat(result == 86).isTrue();
-
     }
-
     @Test
     public void shouldSubtractCorrectly() {
-        //TODO expected number
+        //given
+        int expectedNumber;
         //when
-        int expectedNumber = service.subtractNumber(NUMBER_32, NUMBER_20);
+        expectedNumber = service.subtractNumber(NUMBER_32, NUMBER_20);
         //then
         assertThat(expectedNumber == 12).isTrue();
     }
-
     @Test
     public void shouldMultiplyCorrectly() {
+        //given
+        int expectedNumber;
         //when
-        int expectedNumber = service.multiplyNumber(NUMBER_32, NUMBER_20);
+        expectedNumber = service.multiplyNumber(NUMBER_32, NUMBER_20);
         //then
         assertThat(expectedNumber == 640).isTrue();
     }
-
     @Test
     public void shouldDivideCorrectly() {
+        //given
+        int expectedNumber;
         //when
-        int expectedNumber = service.divideNumber(NUMBER_32, NUMBER_2);
+        expectedNumber = service.divideNumber(NUMBER_32, NUMBER_2);
         //then
         assertThat(expectedNumber == 16).isTrue();
     }
 
+    @Test
     public void shouldPowerCorrectly() {
+        //given
+        int expectedNumber;
         //when
-        int expectedNumber = service.exponentiateNumber(NUMBER_32, NUMBER_2);
+        expectedNumber = service.exponentiateNumber(NUMBER_32, NUMBER_2);
         //then
         assertThat(expectedNumber == 1024).isTrue();
     }
 
+    @Test
     public void shouldElementCorrectly() {
+        //given
+        int expectedNumber;
         //when
-        int expectedNumber = service.elementNumber(NUMBER_144);
+        expectedNumber = service.elementNumber(NUMBER_144);
         //then
         assertThat(expectedNumber == 12).isTrue();
+    }
 
+    @Test
+    public void shouldfactoryCorrectly() {
+        //given
+        int expectedNumber;
+        //when
+        expectedNumber = service.factorialNumber(NUMBER_5);
+        //then
+        Assertions.assertThat(expectedNumber == 120).isTrue();
     }
 }

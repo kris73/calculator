@@ -13,4 +13,6 @@ public interface Service {
     int exponentiateNumber(int number, int exponentation);
 
     int elementNumber(int number);
+
+    int factorialNumber(int number);
 }
