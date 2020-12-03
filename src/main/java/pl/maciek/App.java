@@ -12,6 +12,12 @@ public class App {
         String wybranaOperacja;
         int pierwszaLiczba;
         int drugaLiczba;
+        String czyKontynowac;
+        boolean czyZapetlac;
+        boolean choiceloop = false;
+        do {
+
+
         ServiceImpl service = new ServiceImpl();
         Scanner skaner = new Scanner(System.in);
         System.out.println("Wprowadz liczbe");
@@ -31,6 +37,10 @@ public class App {
         int wynik;
 
         switch (mapa.get(wybranaOperacja)) {
+            default:
+                System.out.println("zostala wybrana nieprawidlowa operacja");
+                wynik = 0;
+                break;
             case 1:
                 wynik = service.addNumber(pierwszaLiczba, drugaLiczba);
                 break;
@@ -41,8 +51,13 @@ public class App {
                 wynik = service.multiplyNumber(pierwszaLiczba, drugaLiczba);
                 break;
             case 4:
-                wynik = service.divideNumber(pierwszaLiczba, drugaLiczba);
-                break;
+                if (drugaLiczba != 0)
+                {
+                    wynik = service.divideNumber(pierwszaLiczba, drugaLiczba);
+
+                }else
+                    System.out.println("nie da sie dzielic przez zero");
+
             case 5:
                 wynik = service.exponentiateNumber(pierwszaLiczba, drugaLiczba);
                 break;
@@ -50,16 +65,27 @@ public class App {
                 wynik = service.elementNumber(pierwszaLiczba);
                 break;
 
-            default:
-                System.out.println("zostala wybrana nieprawidlowa operacja");
-                wynik = 0;
-                break;
+
         }
         System.out.println("Twój wynik to: \n");
         System.out.println(wynik);
+        do {
+        System.out.println("czy chcesz kontynuowac?");
+        czyKontynowac = skaner.next();
 
 
 
-
+            if (czyKontynowac.equals("tak")) {
+                czyZapetlac = true;
+            } else if (czyKontynowac.equals("nie")) {
+                czyZapetlac = false;
+                System.exit(1);
+            } else {
+                System.out.println("wybrano zla opcje- wpisz tak albo nie");
+                czyZapetlac = false;
+                choiceloop = true;
+            }
+        }while (choiceloop);
+    }while (czyZapetlac);
     }
 }
