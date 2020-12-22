@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ServiceImplTest {
+public class MathOperationServiceImplTest {
 
     private final static int NUMBER_32 = 32;
     private final static int NUMBER_53 = 53;
@@ -16,11 +16,11 @@ public class ServiceImplTest {
     private final static int NUMBER_144 = 144;
     private final static int NUMBER_5 = 5;
 
-    ServiceImpl service;
+    MathOperationServiceImpl service;
 
     @Before
     public void setUp() throws Exception {
-        service = new ServiceImpl();
+        service = new MathOperationServiceImpl();
     }
     @Test
     public void shouldAppendCorrectly() {

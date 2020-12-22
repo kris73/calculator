@@ -1,6 +1,6 @@
 package pl.maciek.methods;
 
-public interface Service {
+public interface MathOperationService {
 
     int addNumber(int number, int previousNumber);
 
